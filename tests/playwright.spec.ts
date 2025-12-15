@@ -13,19 +13,19 @@ test('main page title test', async ({ page }) => {
 test('main page username field is present test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   const userNameField = page.locator('#user-name');
-  await expect(userNameField).toHaveCount(1);
+  await expect(userNameField).toBeVisible();
 });
 
 test('main page password field is present test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   const passwordField = page.locator('#password');
-  await expect(passwordField).toHaveCount(1);
+  await expect(passwordField).toBeVisible();
 });
 
 test('main page login button is present test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   const loginButton = page.locator('#login-button');
-  await expect(loginButton).toHaveCount(1);
+  await expect(loginButton).toBeVisible();
 });
 
 

@@ -13,12 +13,15 @@ test('add to cart test', async ({ page }) => {
 });
 
 
-test('choose sauce labs bile light test', async ({ page }) => {
+test('choose sauce labs bike light test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').fill('standard_user');
   await page.locator('[data-test="password"]').fill('secret_sauce');
   await page.locator('[data-test="login-button"]').click();
   await page.locator('[data-test="item-0-title-link"]').click();
+  const pageToCheck = await page.locator('[data-test="inventory-item-name"]').textContent();
+  expect(pageToCheck).toEqual('Sauce Labs Bike Light');
+  await expect(page.locator('[data-test="inventory-item-name"]')).toContainText('Sauce Labs Bike Light');
 });
 
 test('sort product list by price asc test', async ({ page }) => {
@@ -30,6 +33,12 @@ test('sort product list by price asc test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/inventory.html');
   await page.getByText('Name (A to Z)Name (A to Z)').click();
   await page.locator('[data-test="product-sort-container"]').selectOption('lohi');
+  const prices = await page.locator('.inventory_item_price').allTextContents();
+  const numericPrices = prices.map(price =>
+    Number(price.replace('$', ''))
+  );
+  const sortedPrices = [...numericPrices].sort((a, b) => a - b);
+  expect(numericPrices).toEqual(sortedPrices);
 });
 
 

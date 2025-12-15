@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+ "scripts": {
+  "test": "playwright test",
+  "test:docker": "docker run --rm playwright-tests"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnnaKolyagina/Playwright-Test-Repo.git"
