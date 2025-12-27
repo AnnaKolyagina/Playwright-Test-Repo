@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { beforeEach } from 'node:test';
 // 2. Написать 3-5 теста с использованием разных типов Playwright assertions (expect)
 // 3. Добавить assertions с проверкой скриншотов
 // 4. Добавить один кастомный assertion
@@ -58,13 +57,10 @@ test('burger menu screenshot test', async ({ page }) => {
 });
 
 //кастомный асерт
-import { openAndReturn } from './assertions/productNavigation.assert';
+import { expectOpenProductAndReturn } from './assertions/productNavigation.assert';
 
 test('return back from item page test', async ({ page }) => {
-  await openAndReturn(
-    page,
-    'Sauce Labs Onesie'
-  );
+  await expectOpenProductAndReturn(page, 'Sauce Labs Backpack');
 });
 
 //этот тест используется для tracing, debug, failure, failure fix:
@@ -75,7 +71,7 @@ test('sort Z-A neg test', async ({ page }) => {
   expect(names).not.toEqual(sortedNames);
 });
 
-//note: этот тест я не фиксила так как есть такой же но рабоботающий тест выше и плюс для наглядности
+//note: этот тест я не фиксила так как есть такой же но работающий тест выше и плюс для наглядности
 
 
 
