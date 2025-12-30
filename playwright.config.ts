@@ -27,10 +27,12 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    screenshot: 'only-on-failure',
+    viewport: { width: 1280, height: 720 },
+    video: 'retain-on-failure',
     trace: 'on-first-retry',
-    headless: true,
+    headless: false,
     actionTimeout: 60000,
     navigationTimeout: 60000,
   },
@@ -51,6 +53,23 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    
+    {
+      name: 'tracing',
+      testMatch: /playwright\.assertions\.spec\.ts$/, // имя файла с тестом
+      use: {
+        browserName: 'webkit', // Safari
+        trace: 'on',           // включаем tracing
+      },
+    },
+    {
+      name: 'default',
+      use: {
+        browserName: 'webkit',   // Safari
+        trace: 'off',            // обычные тесты без tracing
+      },
+    },
+  
 
     /* Test against mobile viewports. */
     // {
