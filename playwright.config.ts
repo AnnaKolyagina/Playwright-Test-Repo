@@ -49,26 +49,27 @@ export default defineConfig({
     //   use: { ...devices['Desktop Firefox'] },
     // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
     
-    {
-      name: 'tracing',
-      testMatch: /playwright\.assertions\.spec\.ts$/, // имя файла с тестом
-      use: {
-        browserName: 'webkit', // Safari
-        trace: 'on',           // включаем tracing
-      },
+  
+  {
+    name: 'webkit',
+    use: {
+      browserName: 'webkit',
+      trace: 'on',
     },
-    {
-      name: 'default',
-      use: {
-        browserName: 'webkit',   // Safari
-        trace: 'off',            // обычные тесты без tracing
-      },
-    },
+  },
+],
+    // {
+    //   name: 'default',
+    //   use: {
+    //     browserName: 'webkit',   // Safari
+    //     trace: 'off',            // обычные тесты без tracing
+    //   },
+    // },
   
 
     /* Test against mobile viewports. */
@@ -90,7 +91,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  
 
   /* Run your local dev server before starting the tests */
   // webServer: {
