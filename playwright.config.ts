@@ -49,19 +49,31 @@ export default defineConfig({
     //   use: { ...devices['Desktop Firefox'] },
     // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+  {
+    name: 'setup-problem',
+    use: { ...devices['Desktop Safari'] },
+    testDir: 'tests/HW24',
+    testMatch: 'global-setup.ts',
+  },
+  {
+    name: 'problem-tests',
+    use: {
+      ...devices['Desktop Safari'],
+      storageState: '.auth/problem-user-state.json',
     },
+    testDir: 'tests/HW24',
+    dependencies: ['setup-problem'],
+  },
+
     
-    {
-      name: 'tracing',
-      testMatch: /playwright\.assertions\.spec\.ts$/, // имя файла с тестом
-      use: {
-        browserName: 'webkit', // Safari
-        trace: 'on',           // включаем tracing
-      },
-    },
+    // {
+    //   name: 'tracing',
+    //   testMatch: /playwright\.assertions\.spec\.ts$/, // имя файла с тестом
+    //   use: {
+    //     browserName: 'webkit', // Safari
+    //     trace: 'on',           // включаем tracing
+    //   },
+    // },
     {
       name: 'default',
       use: {
