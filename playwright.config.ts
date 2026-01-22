@@ -49,29 +49,25 @@ export default defineConfig({
     //   use: { ...devices['Desktop Firefox'] },
     // },
 
-  {
-    name: 'setup-problem',
-    use: { ...devices['Desktop Safari'] },
-    testDir: 'tests/HW24',
-    testMatch: 'global-setup.ts',
-  },
-  {
-    name: 'problem-tests',
-    use: {
-      ...devices['Desktop Safari'],
-      storageState: '.auth/problem-user-state.json',
-    },
-    testDir: 'tests/HW24',
-    dependencies: ['setup-problem'],
-  },
-
-    
     // {
-    //   name: 'tracing',
-    //   testMatch: /playwright\.assertions\.spec\.ts$/, // имя файла с тестом
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
+    
+  
+  {
+    name: 'webkit',
+    use: {
+      browserName: 'webkit',
+      trace: 'on',
+    },
+  },
+],
+    // {
+    //   name: 'default',
     //   use: {
-    //     browserName: 'webkit', // Safari
-    //     trace: 'on',           // включаем tracing
+    //     browserName: 'webkit',   // Safari
+    //     trace: 'off',            // обычные тесты без tracing
     //   },
     // },
     {
@@ -107,7 +103,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  
 
   /* Run your local dev server before starting the tests */
   // webServer: {
