@@ -70,8 +70,20 @@ export default defineConfig({
     //     trace: 'off',            // обычные тесты без tracing
     //   },
     // },
-  
-
+    {
+      name: 'default',
+      use: {
+        browserName: 'webkit',   // Safari
+        trace: 'off',            // обычные тесты без tracing
+      },
+    },
+  {
+      name: 'api-tests',
+      testDir: './tests/api-tests',
+      use: {
+        baseURL: 'https://api.restful-api.dev',
+      },
+  },
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
