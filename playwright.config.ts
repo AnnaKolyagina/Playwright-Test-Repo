@@ -39,10 +39,10 @@ export default defineConfig({
   timeout: 60000,
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
     // {
     //   name: 'firefox',
@@ -55,13 +55,13 @@ export default defineConfig({
     // },
     
   
-  {
-    name: 'webkit',
-    use: {
-      browserName: 'webkit',
-      trace: 'on',
-    },
-  },
+//   {
+//     name: 'webkit',
+//     use: {
+//       browserName: 'webkit',
+//       trace: 'on',
+//     },
+//   },
 ],
     // {
     //   name: 'default',
