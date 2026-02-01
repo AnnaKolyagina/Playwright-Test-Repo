@@ -2,11 +2,12 @@
 //(как минимум страниц: login, inventory, cart, checkout-step-one)
 //для каждой страницы написать пару тестов, включая тесты футера и хэдера на тех страницах, где они есть
 
-import { test, expect } from '@playwright/test';
+//import { test, expect } from '@playwright/test';
 import { LoginPage } from './page_objects/pages/page_login';
 import { InventoryPage } from './page_objects/pages/page_inventory';
 import { CartPage } from './page_objects/pages/page_cart';
 import { CheckoutInfoPage } from './page_objects/pages/page_checkout';
+import { test, expect } from '../fixtures';
 
 test.describe('SauceDemo Tests Page Objects', () => {
   const validUser = { username: 'standard_user', password: 'secret_sauce' };
