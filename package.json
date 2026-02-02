@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/AnnaKolyagina/Playwright-Test-Repo#readme",
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.58.1",
+    "@types/log4js": "^0.0.33",
     "@types/node": "^24.10.2",
+    "allure-commandline": "^2.36.0",
+    "allure-playwright": "^3.4.5",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
@@ -28,6 +31,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "log4js": "^6.9.1",
     "playwright": "^1.57.0",
     "playwright-core": "^1.57.0",
     "undici-types": "^7.16.0"

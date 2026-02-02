@@ -1,4 +1,5 @@
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
+import { test, expect } from '../fixtures';
 
 export async function expectOpenProductAndReturn(
   page: Page,
